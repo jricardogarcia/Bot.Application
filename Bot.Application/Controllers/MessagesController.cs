@@ -5,7 +5,7 @@ using System.Web.Http;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 
-namespace Bot.Application
+namespace Bot.Application.Controllers
 {
     [BotAuthentication]
     public class MessagesController : ApiController
@@ -18,7 +18,7 @@ namespace Bot.Application
         {
             if (activity.Type == ActivityTypes.Message)
             {
-                await Conversation.SendAsync(activity, () => new Dialogs.RootDialog());
+                await Conversation.SendAsync(activity, () => new Dialogs.QnaDialog());
             }
             else
             {
